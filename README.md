@@ -1,68 +1,33 @@
-# Astro Starter Kit: Blog
+# Project Title
 
-```sh
-npm create astro@latest -- --template blog
-```
+This is a TypeScript project built with Astro, a front-end framework for building fast, optimized websites.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+## Project Structure
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+-   `src/`: Contains the source code of the project.
+    -   `consts.ts`: Contains constant values used across the project.
+    -   `content/`: Contains configuration and posts for the project.
+    -   `env.d.ts`: Contains TypeScript definitions for environment variables.
+    -   `icons/`: Contains icon files.
+    -   `layouts/`: Contains layout components.
+    -   `pages/`: Contains the Astro pages.
+    -   `styles/`: Contains global CSS styles.
+-   `public/`: Contains public assets that will be served directly.
+-   `astro.config.mjs`: Astro configuration file.
+-   `tailwind.config.mjs`: Tailwind CSS configuration file.
+-   `tsconfig.json`: TypeScript configuration file.
+-   `package.json`: Contains scripts and dependencies of the project.
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## Installation
 
-Features:
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Start the development server with `npm run dev`.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Building
 
-## 🚀 Project Structure
+To build the project, run `npm run build`.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contributing
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
