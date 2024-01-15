@@ -48,7 +48,7 @@ const soon = [
 
 <html>
 	<head>
-		<title>Helo World</title>
+		<title>Yash D Portfolio</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,9 +83,9 @@ const soon = [
 		>
 			<p class="font-bold text-lg pb-5">Quick Links</p>
 			<ul class="list-disc ml-5 space-y-4">
-				<li>My Tech Journy</li>
-				<li>Few Project</li>
-				<li>Blogss</li>
+				<li><a href="/#journey">My Tech Journy</a></li>
+				<li><a href="/#project">Few Project</a></li>
+				<li><a href="/#blog">Blogs</a></li>
 			</ul>
 		</div>
 		<section
@@ -93,6 +93,7 @@ const soon = [
 		>
 			<div
 				class="col-span-4 border-2 border-black bg-[url('/mesh-bg3.png')] bg-cover text-white animate-fade-right animate-delay-[1000ms]"
+				id="journey"
 			>
 				<h1 class="text-2xl">My Tech Journy</h1>
 				<ul class="list-disc ml-5 space-y-4">
@@ -120,6 +121,7 @@ const soon = [
 
 			<div
 				class="col-span-4 border-2 border-black bg-[url('/mesh-111.png')] bg-cover text-white bg-white animate-fade-right animate-delay-[1500ms]"
+				id="project"
 			>
 				<h1 class="text-2xl">
 					My Projects <span class="text-xs pl-2"
@@ -145,7 +147,7 @@ const soon = [
 		<div
 			class="border-2 border-teal-400 p-4 mb-5 w-full rounded-xl max-w-xl animate-fade-right animate-delay-[1700ms]"
 		>
-			<h1 class="text-xl">Blogis</h1>
+			<h1 class="text-xl" id="blog">Blogs</h1>
 			{
 				sortedPosts.length !== 0 &&
 					sortedPosts.slice(0, 2).map((post) => (
@@ -188,7 +190,7 @@ const soon = [
 									</div>
 								</div>
 							</a>
-							<hr class=" bg-slate-300 h-1 border-0" />
+							<hr class=" bg-black h-[1px] border-0" />
 						</>
 					))
 			}

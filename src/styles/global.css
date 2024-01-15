@@ -26,3 +26,8 @@ h6 {
 	background-size: 300px 300px;
 }
 
+@layer base {
+	html {
+		scroll-behavior: smooth !important;
+	}
+}
