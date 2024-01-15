@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+
+import "../styles/global.css";
+export async function getStaticPaths() {
+	const blogEntries = await getCollection("posts");
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+import { fade } from "astro:transitions";
+---
+
+<html>
+	<head>
+		<title>Helo World</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	</head>
+	<body
+		class="bg-[#f5ede9] min-h-screen flex flex-col w-full mx-auto max-w-2xl my-[5rem] px-7 selection:bg-emerald-400"
+	>
+		<article
+			class="my-auto prose prose-zinc prose-img:!max-h-[20rem] md:prose-img:!max-h-[15rem] prose-img:rounded-xl prose-img:shadow-2xl prose-img:object-cover prose-headings:font-serif;"
+		>
+			<h1
+				transition:name={`${entry.slug} title`}
+				transition:animate="fade"
+			>
+				{entry.data.title}
+			</h1>
+			<img
+				src={entry.data.image.url}
+				transition:name={`${entry.slug} image`}
+				transition:animate="fade"
+			/>
+			<Content transition:animate={fade({ duration: "30s" })} />
+		</article>
+	</body>
+</html>

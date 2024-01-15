@@ -1,0 +1,197 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+
+// /**
+//  * Sorts all posts by publication date in descending order.
+//  * @param {Array} allPosts - Array of all posts to be sorted.
+//  * @returns {Array} - Array of sorted posts.
+//  */
+const sortedPosts = allPosts.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const projects = [
+	[
+		"Rock Paper Scissors Game!",
+		"This Game is made with OpenCV and Mediapipe.",
+		"https://github.com/yashd-dev/RPS-using-OpenCv",
+	],
+	[
+		"A Chat Application!",
+		"Made with Next.js, Tailwind, DaisyUI, Firebase and ChatEngine.",
+		"https://github.com/Amazing-ChatApp",
+	],
+	[
+		"Landing Page for A Workshop",
+		"Made with Flask, Tailwind, HTML, JS",
+		"https://pfe.mpstme.hosting.acm.org/",
+	],
+	[
+		"A Platform for Develoers to Help Each-other out!",
+		"Made With Next.js, Tailwind, Firebase, CodeMirror",
+		"https://codeconnectt.vercel.app/",
+	],
+	[
+		"A Website For My Dad's Company!",
+		"This is a simple landing page made with WebSlides.",
+		"https://mediethics-yashd.web.app/",
+	],
+];
+const soon = [
+	["A Monthly Newsletter", "Made With Astro and Tailwind"],
+	["Landing Page for College  Festival!", "Made With React and Tailwind"],
+];
+---
+
+<html>
+	<head>
+		<title>Helo World</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body
+		class="bg-[#f5ede9] min-h-screen flex flex-col w-full mx-auto max-w-2xl my-[5rem] px-7 selection:bg-emerald-400"
+	>
+		<h1 class="text-3xl fade animate-fade-right animate-delay-[250ms]">
+			I'm Yash Deshpande
+		</h1>
+		<p class="text-lg pb-5 animate-fade-right animate-delay-[250ms]">
+			Crafting digital experiences with elegance and efficiency.
+		</p>
+		<div
+			class="border-2 border-pink-600 p-4 mb-5 max-w-xl rounded-xl animate-fade-right animate-delay-[500ms]"
+		>
+			<h1 class="font-bold text-lg pb-5">Currently Learning</h1>
+			<ul class="grid grid-cols-2 w-full *:pb-6">
+				<li class="inline">
+					<Icon name="aws" class="inline mr-2" /> AWS (Devops)
+				</li>
+				<li><Icon name="docker" class="inline mr-2" /> Docker</li>
+				<li><Icon name="astro" class="inline mr-2" /> Astro JS</li>
+				<li>
+					<Icon name="opencv" class="inline mr-2" /> Image Processing
+				</li>
+			</ul>
+		</div>
+		<div
+			class="border-2 border-purple-400 p-4 mb-5 max-w-xl rounded-xl *:underline animate-fade-right animate-delay-[750ms]"
+		>
+			<p class="font-bold text-lg pb-5">Quick Links</p>
+			<ul class="list-disc ml-5 space-y-4">
+				<li>My Tech Journy</li>
+				<li>Few Project</li>
+				<li>Blogss</li>
+			</ul>
+		</div>
+		<section
+			class="grid grid-cols-4 mb-5 justify-between w-full items-stretch max-w-xl gap-10 *:rounded-lg *:p-5 md:*:p-10"
+		>
+			<div
+				class="col-span-4 border-2 border-black bg-[url('/mesh-bg3.png')] bg-cover text-white animate-fade-right animate-delay-[1000ms]"
+			>
+				<h1 class="text-2xl">My Tech Journy</h1>
+				<ul class="list-disc ml-5 space-y-4">
+					<li>
+						I started Java in my 10th grade, teachers used to teach
+						the basics but i got bored by that and decided to
+						explore springboot and mongodb
+					</li>
+					<li>
+						During the pandemic, i was bored so i decided to mess
+						around with linux and i fell in love with it. I now use
+						arch linux btw :)
+					</li>
+					<li>
+						Then i moved on the world of web development, doing it
+						for over 3 years now and i love it. Current stack is
+						Astro, Tailwind and Supabase
+					</li>
+					<li class="font-bold">
+						Currently Exploring Devops with AWS along with some
+						Image Processing with OpenCV on the side
+					</li>
+				</ul>
+			</div>
+
+			<div
+				class="col-span-4 border-2 border-black bg-[url('/mesh-111.png')] bg-cover text-white bg-white animate-fade-right animate-delay-[1500ms]"
+			>
+				<h1 class="text-2xl">
+					My Projects <span class="text-xs pl-2"
+						>(ps. click on them to know more)</span
+					>
+				</h1>
+				<ul class="list-disc ml-5 space-y-4">
+					{
+						projects.map((key) => (
+							<li>
+								{" "}
+								<a href={key[2]}>
+									<span class=" font-bold"> {key[0]} </span>{" "}
+									{key[1]}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<div
+			class="border-2 border-teal-400 p-4 mb-5 w-full rounded-xl max-w-xl animate-fade-right animate-delay-[1700ms]"
+		>
+			<h1 class="text-xl">Blogis</h1>
+			{
+				sortedPosts.length !== 0 &&
+					sortedPosts.slice(0, 2).map((post) => (
+						<>
+							<a
+								href={`/${post.slug}`}
+								class="block mb-4 hover:underline"
+							>
+								<div class="flex flex-col justify-between items-start md:flex-row md:items-center gap-4">
+									<p class="text-lg transition:name-[${post.slug} title]">
+										{post.data.title}
+									</p>
+									<div class="flex items-center gap-4">
+										<p>
+											{String(post.data.pubDate).slice(
+												0,
+												15
+											)}
+										</p>
+										<svg
+											width="40"
+											height="40"
+											viewBox="0 0 18 18"
+											fill="none"
+											class="transition-all duration-300 group-hover:translate-x-1"
+										>
+											<path
+												d="M5.25 12.75L12.75 5.25"
+												stroke="#999999"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+											<path
+												d="M5.25 5.25H12.75V12.75"
+												stroke="#999999"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+										</svg>
+									</div>
+								</div>
+							</a>
+							<hr class=" bg-slate-300 h-1 border-0" />
+						</>
+					))
+			}
+		</div>
+	</body>
+</html>
